@@ -1,0 +1,54 @@
+{
+    "kind": "collectionType",
+    "collectionName": "hostings",
+    "info": {
+      "singularName": "hosting",
+      "pluralName": "hostings",
+      "displayName": "Hosting"
+    },
+    "options": {
+      "draftAndPublish": true
+    },
+    "attributes": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "customer": {
+        "type": "relation",
+        "relation": "manyToOne",
+        "target": "api::customer.customer"
+      },
+      "provider": {
+        "type": "relation",
+        "relation": "manyToOne",
+        "target": "api::provider.provider"
+      },
+      "type": {
+        "type": "enumeration",
+        "enum": [
+          "shared",
+          "VPS",
+          "dedicated"
+        ]
+      },
+      "accessCredentials": {
+        "type": "text",
+        "private": true
+      },
+      "contractDate": {
+        "type": "date"
+      },
+      "renewalDate": {
+        "type": "date"
+      },
+      "price": {
+        "type": "decimal"
+      },
+      "services": {
+        "type": "relation",
+        "relation": "manyToMany",
+        "target": "api::service.service"
+      }
+    }
+  }
